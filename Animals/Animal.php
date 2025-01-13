@@ -1,5 +1,5 @@
 <?php
-namespace Unity;
+namespace Unity\Animals;
 
 interface Animal
 {
