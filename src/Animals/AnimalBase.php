@@ -2,12 +2,12 @@
 
 namespace Unity\Animals;
 
-use Unity\Animals\Animal;
+use Unity\Animals;
 
 class AnimalBase implements Animal
 {
-    private string $name;
-    private string $species;
+    private readonly string $name;
+    private readonly string $species;
     private $eatingBehavior;
 
     public function __construct(string $name, string $species, callable $eatingBehavior)
