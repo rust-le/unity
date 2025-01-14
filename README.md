@@ -1,6 +1,7 @@
+# Zoo
+Run ```php src/main.php``` and tests by ```./vendor/bin/phpunit```.
+Php version used is 8.3
 # PostgreSQL
-
-
 You may use docker-compose.yml file by ```docker compose up -d``` to create a Postgre 14 database.
 Then log into Postgre console in container by ```docker container exec -it postgres psql -U postgres``` and create a database:
 ```sql

@@ -1,41 +1,30 @@
 <?php
+
 namespace Unity\Animals;
 
 use PHPUnit\Framework\TestCase;
 
 class AnimalBaseTest extends TestCase
 {
-    private string $name;
-    private string $species;
+    private Animal $animal;
 
     protected function setUp(): void
     {
-        $this->name = 'Basia';
-        $this->species = 'Wiewiórka';
-        $this->eatingBehavior = function($name, $food) {};
-    }
-    public function test__construct()
-    {
-        $animal = new AnimalBase($this->name, $this->species, $this->eatingBehavior);
-        $this->assertInstanceOf(Animal::class, $animal);
-        $this->assertInstanceOf(AnimalBase::class, $animal);
+        $this->animal = new AnimalBase('Leo', 'Lion', function ($name, $foodType) {});
     }
 
-    public function testGetGetters()
+    public function testGetName()
     {
-        $animal = new AnimalBase($this->name, $this->species, $this->eatingBehavior);
-        $this->assertEquals($this->name, $animal->getName());
-        $this->assertEquals($this->species, $animal->getSpecies());
+        $this->assertEquals('Leo', $this->animal->getName());
     }
 
-    public function testEat()
+    public function testGetSpecies()
     {
-      // TODO: Implement testEat() method.
+        $this->assertEquals('Lion', $this->animal->getSpecies());
     }
 
-    public function test__toString()
+    public function testToString()
     {
-        $animal = new AnimalBase($this->name, $this->species, $this->eatingBehavior);
-        $this->assertEquals('Wiewiórka Basia', (string)$animal);
+        $this->assertEquals('Lion Leo', (string)$this->animal);
     }
 }
