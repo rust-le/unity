@@ -1,9 +1,9 @@
 # Zoo
-Run ```php src/main.php``` and tests by ```./vendor/bin/phpunit```.
+Run ```composer install```,```php src/main.php``` and tests by ```php ./vendor/bin/phpunit```.
 Php version used is 8.3
 # PostgreSQL
 You may use docker-compose.yml file by ```docker compose up -d``` to create a Postgre 14 database.
-Then log into Postgre console in container by ```docker container exec -it postgres psql -U postgres``` and create a database:
+Then log into Postgre console in container by ```docker container exec -it db psql -U postgres``` and create a database:
 ```sql
 DROP TABLE IF EXISTS authors, books, reviews;
     
@@ -119,6 +119,7 @@ Returned data:
 | Łukasz     | Orbitowski        | 0          |
 | Jarosław   | Grzędowicz        | 0          |
 | Robert     | M. Wegner         | 0          |
+
 And finally, query creating a view containing 5 authors whose average rating of all books is the highest: 
 
 ```sql
