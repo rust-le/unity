@@ -13,11 +13,6 @@ class EatingBehaviors
         }
     }
 
-    public static function carnivorous(string $name, string $foodType): void
-    {
-        self::eat($name, $foodType, ["meat"]);
-    }
-
     public static function herbivorous(string $name, string $foodType): void
     {
         self::eat($name, $foodType, ["plant"]);
@@ -26,5 +21,10 @@ class EatingBehaviors
     public static function omnivorous(string $name, string $foodType): void
     {
         self::eat($name, $foodType, ["meat", "plant"]);
+    }
+
+    public static function carnivorous(string $name, string $foodType): void
+    {
+        self::eat($name, $foodType, ["meat"]);
     }
 }

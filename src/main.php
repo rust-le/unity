@@ -14,20 +14,18 @@ $animals = [
     ['name' => 'Stanisław', 'species' => 'Królik', 'eatingBehavior' => 'herbivorous', 'isFurry' => false],
 ];
 
-$zoo = new Zoo(); // Create a new Zoo object
 $factory = new AnimalFactory();
 
-array_walk($animals, function ($data) use ($zoo, $factory) {
-    $animal = $factory::createAnimal( // Create an animal object
+array_walk($animals, function ($data) use ($factory) {
+    $animal = $factory->createAnimal( // Create an animal object
         $data['name'],
         $data['species'],
         [Unity\Animals\EatingBehaviors::class, $data['eatingBehavior']],
         $data['isFurry']
     );
-    $zoo->addAnimal($animal); // And store it in the zoo
+    Zoo::create()->addAnimal($animal); // Zoo is a singleton
 });
-
-foreach ($zoo->listAnimals() as $animal) {
+foreach (Zoo::create()->listAnimals() as $animal) {
     echo $animal . "\n"; // Prints species and animal name
     array_walk($food, function ($foodType) use ($animal) {
         $animal->eat($foodType); // Feed the animal

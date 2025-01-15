@@ -8,11 +8,6 @@ class AnimalBaseTest extends TestCase
 {
     private Animal $animal;
 
-    protected function setUp(): void
-    {
-        $this->animal = new AnimalBase('Leo', 'Lion', function ($name, $foodType) {});
-    }
-
     public function testGetName()
     {
         $this->assertEquals('Leo', $this->animal->getName());
@@ -26,5 +21,11 @@ class AnimalBaseTest extends TestCase
     public function testToString()
     {
         $this->assertEquals('Lion Leo', (string)$this->animal);
+    }
+
+    protected function setUp(): void
+    {
+        $this->animal = new AnimalBase('Leo', 'Lion', function ($name, $foodType) {
+        });
     }
 }
