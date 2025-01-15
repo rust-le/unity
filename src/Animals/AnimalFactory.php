@@ -11,9 +11,15 @@ class AnimalFactory
         if (!is_callable($eatingBehavior)) {
             throw new InvalidArgumentException("The eating behavior must be a callable");
         }
+
+        $eatingBehavior = \Closure::fromCallable($eatingBehavior);
+
         return match ($isFurry) {
-            true => new AnimalWithFur($name, $species, $eatingBehavior),
-            false => new AnimalWithoutFur($name, $species, $eatingBehavior),
+            true => new class($name, $species, $eatingBehavior) extends AnimalBase {
+                use Groomable;
+            },
+            false => new class($name, $species, $eatingBehavior) extends AnimalBase {
+            },
         };
     }
 }
