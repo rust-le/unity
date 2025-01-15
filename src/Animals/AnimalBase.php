@@ -8,7 +8,7 @@ class AnimalBase implements Animal
 {
     private readonly string $name;
     private readonly string $species;
-    private $eatingBehavior;
+    private \Closure $eatingBehavior;
 
     public function __construct(string $name, string $species, callable $eatingBehavior)
     {

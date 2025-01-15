@@ -1,4 +1,5 @@
 <?php
+
 namespace Unity\Animals;
 
 interface Animal
@@ -8,4 +9,6 @@ interface Animal
     public function getSpecies(): string;
 
     public function eat(string $foodType): void;
+
+    public function __toString(): string;
 }

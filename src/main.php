@@ -25,6 +25,7 @@ array_walk($animals, function ($data) use ($factory) {
     );
     Zoo::create()->addAnimal($animal); // Zoo is a singleton
 });
+
 foreach (Zoo::create()->listAnimals() as $animal) {
     echo $animal . "\n"; // Prints species and animal name
     array_walk($food, function ($foodType) use ($animal) {
